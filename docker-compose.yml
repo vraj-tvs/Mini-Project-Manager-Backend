@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  project-manager-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: project-manager-api
+    ports:
+      - "5096:5096"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "dotnet", "--info"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - project-manager-network
+
+  # Optional: Add a reverse proxy for production (commented out by default)
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: project-manager-nginx
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  #     - ./ssl:/etc/nginx/ssl:ro
+  #   depends_on:
+  #     - project-manager-api
+  #   restart: unless-stopped
+  #   networks:
+  #     - project-manager-network
+
+networks:
+  project-manager-network:
+    driver: bridge
+
+volumes:
+  project-manager-data:
+    driver: local
+  project-manager-logs:
+    driver: local
