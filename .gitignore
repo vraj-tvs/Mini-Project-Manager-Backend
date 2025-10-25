@@ -17,6 +17,7 @@ publish/
 *.suo
 *.user
 *.userosscache
+*.sln
 *.sln.docstates
 
 # Rider
@@ -59,3 +60,5 @@ _ReSharper*/
 
 # Keep repository-specific files (appsettings.json etc.) tracked intentionally.
 *.env
+TaskManager.db-wal
+TaskManager.db-shm
