@@ -1,0 +1,61 @@
+# .gitignore for Mini-Project-Manager-Backend
+# Tailored for .NET / Visual Studio / VS Code / Rider projects
+
+# Build folders
+bin/
+obj/
+out/
+**/bin/
+**/obj/
+
+# Publish output
+publish/
+*.publish/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# NuGet
+packages/
+*.nupkg
+.nuget/
+project.assets.json
+
+# Test results
+TestResults/
+*.trx
+
+# Logs, databases and caches
+*.log
+logs/
+*.sqlite
+*.db
+*.ldb
+*.cache
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Resharper
+_ReSharper*/
+*.ReSharper*
+
+# Misc
+.vscode-test/
+
+# Keep repository-specific files (appsettings.json etc.) tracked intentionally.
+*.env
